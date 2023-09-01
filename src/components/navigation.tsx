@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useSession } from "next-auth/react";
-import { LoginButton } from "./buttons";
+import { LoginButton, LoginText } from "./buttons";
 import { LogoutButton } from "./buttons";
 
 export default function Navigation() {
@@ -35,17 +35,6 @@ export default function Navigation() {
               <a>Item 1</a>
             </li>
             <li>
-              <a>Parent</a>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </li>
-            <li>
               <a>Item 3</a>
             </li>
           </ul>
@@ -55,29 +44,20 @@ export default function Navigation() {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a>Item 1</a>
-          </li>
-          <li tabindex="0">
-            <details>
-              <summary>Parent</summary>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </details>
+            <a>Home</a>
           </li>
           <li>
-            <a>Item 3</a>
+            <a>About</a>
+          </li>
+          <li>
+            <a>Pricing</a>
           </li>
         </ul>
       </div>
       <div className="navbar-end">
-        {session && <LogoutButton />}
+        {!session && <LoginText />}
         {!session && <LoginButton />}
+        {session && <LogoutButton />}
       </div>
     </div>
   );

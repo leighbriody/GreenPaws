@@ -5,9 +5,17 @@ import Link from "next/link";
 
 export const LoginButton = () => {
   return (
-    <button className="btn btn-primary" onClick={() => signIn()}>
-      Sign In
+    <button className="btn btn-primary mr-5 btn-sm" onClick={() => signIn()}>
+      Get Started Free
     </button>
+  );
+};
+
+export const LoginText = () => {
+  return (
+    <p className="text-primary mr-5 " onClick={() => signIn()}>
+      Sign In
+    </p>
   );
 };
 
@@ -21,8 +29,8 @@ export const RegisterButton = () => {
 
 export const LogoutButton = () => {
   return (
-    <button className="btn btn-primary" onClick={() => signOut()}>
-      Sign Out
+    <button className="btn btn-primary mr-5 btn-sm" onClick={() => signIn()}>
+      Logout
     </button>
   );
 };
