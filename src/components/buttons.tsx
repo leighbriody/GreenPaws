@@ -29,7 +29,7 @@ export const RegisterButton = () => {
 
 export const LogoutButton = () => {
   return (
-    <button className="btn btn-primary mr-5 btn-sm" onClick={() => signIn()}>
+    <button className="btn btn-primary mr-5 btn-sm" onClick={() => signOut()}>
       Logout
     </button>
   );
