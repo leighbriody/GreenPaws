@@ -1,6 +1,5 @@
 import React from "react";
-import { useSession, getSession } from "next-auth/react";
-import AdminNavigation from "../../components/AdminNavigation";
+
 import Stripe from "stripe";
 import Link from "next/link";
 import {
@@ -44,7 +43,6 @@ export default async function Dashboard() {
   const hasSub = await hasSubscription();
   return (
     <>
-      <AdminNavigation />
       <Link href={"" + manageLink}>Manage Billing</Link>
       {/* check to see if they have a subscription or not */}
       {hasSub ? (

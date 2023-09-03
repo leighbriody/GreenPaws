@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import { NextAuthProvider } from "./providers";
 import { Session } from "inspector";
 import Navigation from "@/components/Navigation";
+import AdminNavigation from "@/components/AdminNavigation";
 
 const inter = Inter({ subsets: ["latin"] });
 

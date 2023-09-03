@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { FaUser, FaBriefcase, FaClipboardList } from "react-icons/fa"; // Import the React icons
 
@@ -12,11 +13,14 @@ export default function AdminNavigation() {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <div>
-                <FaUser className="mr-2" /> Profile{" "}
-                {/* Add the icon and spacing */}
-              </div>
+              <Link href={"/dashboard/profile"}>
+                <div>
+                  <FaUser className="mr-2" /> Profile{" "}
+                  {/* Add the icon and spacing */}
+                </div>
+              </Link>
             </li>
+
             <li>
               <div>
                 <FaBriefcase className="mr-2" /> Jobs{" "}
@@ -41,22 +45,22 @@ export default function AdminNavigation() {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a>
+            <Link href={"/dashboard/profile"}>
               <FaUser className="mr-2" /> Profile{" "}
               {/* Add the icon and spacing */}
-            </a>
+            </Link>
           </li>
           <li>
-            <a>
+            <Link href={"/dashboard/jobs"}>
               <FaBriefcase className="mr-2" /> Jobs{" "}
               {/* Add the icon and spacing */}
-            </a>
+            </Link>
           </li>
           <li>
-            <a>
+            <Link href={"/dashboard/applications"}>
               <FaClipboardList className="mr-2" /> Applications{" "}
               {/* Add the icon and spacing */}
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

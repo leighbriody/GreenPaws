@@ -14,20 +14,6 @@ export default function TestNav() {
   const { data: session } = useSession();
   const pathname = usePathname();
 
-  // Function to toggle the mobile menu
-  function toggleMenu() {
-    setIsMenuOpen(!isMenuOpen);
-  }
-
-  // Close the mobile menu when a link is clicked
-  function closeMenu() {
-    setIsMenuOpen(false);
-  }
-
-  function openUserSettings() {
-    console.log("called");
-  }
-
   return (
     <nav
       id="navbar"
@@ -82,7 +68,6 @@ export default function TestNav() {
               aria-label="humburger"
               id="hamburger"
               className="relative -mr-6 p-6 lg:hidden"
-              onClick={toggleMenu} // Add click event to toggle the menu
             >
               <div
                 aria-hidden="true"
@@ -181,26 +166,38 @@ export default function TestNav() {
             </div>
 
             <div>
-              {session?.user?.image && (
-                <div
-                  className="grid grid-cols-[auto,auto] gap-1 items-center mr-5"
-                  onClick={openUserSettings}
-                >
-                  <div className="group relative h-9 w-9 rounded-full overflow-hidden">
-                    <Image
-                      src={session?.user?.image}
-                      width={500}
-                      height={500}
-                      alt="user"
-                    />
-                  </div>
-                  <div className="relative group">
-                    <div className="rounded-full">
-                      <RiArrowDropDownLine />
+              <div className="dropdown dropdown-end">
+                <label tabIndex={0} className="">
+                  {session?.user?.image && (
+                    <div className="grid grid-cols-[auto,auto] gap-1 items-center mr-5">
+                      <div className="group relative h-9 w-9 rounded-full overflow-hidden">
+                        <Image
+                          src={session?.user?.image}
+                          width={500}
+                          height={500}
+                          alt="user"
+                        />
+                      </div>
+                      <div className="relative group">
+                        <div className="rounded-full">
+                          <RiArrowDropDownLine />
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              )}
+                  )}
+                </label>
+                <ul
+                  tabIndex={0}
+                  className="menu dropdown-content z-[1] p-2 shadow bg-base-100 rounded-box w-52 mt-4"
+                >
+                  <li>
+                    <a>Manage Billing</a>
+                  </li>
+                  <li>
+                    <a>Support</a>
+                  </li>
+                </ul>
+              </div>
             </div>
 
             <button
