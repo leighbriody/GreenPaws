@@ -3,15 +3,18 @@ import React from "react";
 import { useSession } from "next-auth/react";
 import { LoginButton, LoginText } from "./buttons";
 import { LogoutButton } from "./buttons";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Navigation() {
   const { data: session } = useSession();
-
+  const pathname = usePathname();
+  console.log(pathname);
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
         <div className="dropdown">
-          <label tabindex="0" className="btn btn-ghost lg:hidden">
+          <label className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -44,13 +47,29 @@ export default function Navigation() {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a>Home</a>
+            <Link
+              href={"/home"}
+              className={pathname == "/home" ? "text-primary" : ""}
+            >
+              Home
+            </Link>
           </li>
           <li>
-            <a>About</a>
+            <Link
+              href={"/about"}
+              className={pathname == "/about" ? "text-primary" : ""}
+            >
+              About
+            </Link>
           </li>
+
           <li>
-            <a>Pricing</a>
+            <Link
+              href={"/home"}
+              className={pathname == "/pricing" ? "text-primary" : ""}
+            >
+              Pricing
+            </Link>
           </li>
         </ul>
       </div>

@@ -16,5 +16,8 @@ export const authOptions: NextAuthOptions = {
       clientSecret: process.env.GITHUB_APP_CLIENT_SECRET as string,
     }),
   ],
+  pages: {
+    signIn: "/sign-in",
+  },
   adapter: PrismaAdapter(prisma),
 } as AuthOptions;

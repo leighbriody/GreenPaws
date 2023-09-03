@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import { NextAuthProvider } from "./providers";
 import Navigation from "@/components/navigation";
 import { Session } from "inspector";
+import TestNav from "@/components/test-nav";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +22,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <NextAuthProvider>
-          <Navigation></Navigation>
+          <TestNav />
+          {/* <Navigation></Navigation> */}
           {children}
         </NextAuthProvider>
       </body>
