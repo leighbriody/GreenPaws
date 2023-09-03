@@ -1,10 +1,13 @@
-import { LoginButton } from "@/components/buttons";
-import Image from "next/image";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth";
-import { User } from "@/components/user";
+import Hero from "@/components/Hero";
+import LandingHero from "@/components/LandingHero";
+import React from "react";
 
-export default async function Home() {
-  const session = await getServerSession(authOptions);
-  return <div></div>;
+export default function Home() {
+  return (
+    <>
+      <LandingHero />
+
+      {/* more components will go here */}
+    </>
+  );
 }

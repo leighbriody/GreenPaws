@@ -1,7 +1,7 @@
 "use client";
-import AdminNavigation from "@/components/admin-navigation";
 import React from "react";
 import { useSession, getSession } from "next-auth/react";
+import AdminNavigation from "../../components/AdminNavigation";
 
 export default function Dashboard() {
   const { data: session, status } = useSession();
