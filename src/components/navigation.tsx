@@ -193,7 +193,7 @@ export default function TestNav() {
                     <Link href={"/billing"}>Manage Billing</Link>
                   </li>
                   <li>
-                    <a>Support</a>
+                    <Link href={"/contact"}>Support</Link>
                   </li>
                 </ul>
               </div>
