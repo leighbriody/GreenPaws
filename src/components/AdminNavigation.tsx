@@ -1,22 +1,17 @@
 import Link from "next/link";
 import React from "react";
-import { FaUser, FaBriefcase, FaClipboardList } from "react-icons/fa"; // Import the React icons
+import { FaUser, FaBriefcase, FaClipboardList } from "react-icons/fa";
 
 export default function AdminNavigation() {
   return (
     <div className="navbar bg-base-100 border-t border-gray-300">
       <div className="navbar-start">
         <div className="dropdown">
-          {/* ... */}
-          <ul
-            tabindex="0"
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-          >
+          <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
             <li>
               <Link href={"/dashboard/profile"}>
                 <div>
                   <FaUser className="mr-2" /> Profile{" "}
-                  {/* Add the icon and spacing */}
                 </div>
               </Link>
             </li>
@@ -24,19 +19,16 @@ export default function AdminNavigation() {
             <li>
               <div>
                 <FaBriefcase className="mr-2" /> Jobs{" "}
-                {/* Add the icon and spacing */}
               </div>
             </li>
             <li>
               <div>
                 <FaClipboardList className="mr-2" /> Applications{" "}
-                {/* Add the icon and spacing */}
               </div>
             </li>
             <li>
               <div>
                 <FaClipboardList className="mr-2" /> Applications{" "}
-                {/* Add the icon and spacing */}
               </div>
             </li>
           </ul>
@@ -47,19 +39,16 @@ export default function AdminNavigation() {
           <li>
             <Link href={"/dashboard/profile"}>
               <FaUser className="mr-2" /> Profile{" "}
-              {/* Add the icon and spacing */}
             </Link>
           </li>
           <li>
             <Link href={"/dashboard/jobs"}>
               <FaBriefcase className="mr-2" /> Jobs{" "}
-              {/* Add the icon and spacing */}
             </Link>
           </li>
           <li>
             <Link href={"/dashboard/applications"}>
               <FaClipboardList className="mr-2" /> Applications{" "}
-              {/* Add the icon and spacing */}
             </Link>
           </li>
         </ul>

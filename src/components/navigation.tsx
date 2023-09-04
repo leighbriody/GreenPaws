@@ -6,10 +6,9 @@ import { signOut } from "next-auth/react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 
-import { RiArrowDropDownLine } from "react-icons/ri"; // Import the React icons
-
+import { RiArrowDropDownLine } from "react-icons/ri";
 export default function TestNav() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // Add state to track menu open/close
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const { data: session } = useSession();
   const pathname = usePathname();
