@@ -190,7 +190,7 @@ export default function TestNav() {
                   className="menu dropdown-content z-[1] p-2 shadow bg-base-100 rounded-box w-52 mt-4"
                 >
                   <li>
-                    <a>Manage Billing</a>
+                    <Link href={"/billing"}>Manage Billing</Link>
                   </li>
                   <li>
                     <a>Support</a>
