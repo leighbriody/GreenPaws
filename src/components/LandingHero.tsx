@@ -61,7 +61,7 @@ export default function LandingHero() {
                   </div>
                   <input
                     aria-label="your email"
-                    autocomplete="email"
+                    autoComplete="email"
                     placeholder="Your mail address"
                     className="w-full rounded-full bg-transparent p-4 placeholder-gray-600 outline-none dark:text-white dark:placeholder-white"
                     type="email"

@@ -13,7 +13,7 @@ export function Price() {
     setSelectedOption(option);
   };
   return (
-    <>
+    <div>
       <div className="xl:mx-auto xl:container py-20 2xl:px-0 px-6">
         <div className="lg:flex items-center justify-between">
           <div className=" lg:w-1/2 w-full">
@@ -100,14 +100,14 @@ export function Price() {
                   </h2>
                   <p className="text-2xl md:mt-0 mt-4 font-semibold leading-6 text-gray-800">
                     {selectedOption === "monthly" ? (
-                      <>
+                      <div>
                         {" "}
                         €10<span className="font-normal text-base">/mo</span>
-                      </>
+                      </div>
                     ) : (
-                      <>
+                      <div>
                         €120<span className="font-normal text-base">/yr</span>
-                      </>
+                      </div>
                     )}
                   </p>
                 </div>
@@ -127,14 +127,14 @@ export function Price() {
                 <p className="text-2xl md:mt-0 mt-4 font-semibold leading-6 text-gray-800">
                   <p className="text-2xl md:mt-0 mt-4 font-semibold leading-6 text-gray-800">
                     {selectedOption === "monthly" ? (
-                      <>
+                      <div>
                         {" "}
                         €20<span className="font-normal text-base">/mo</span>
-                      </>
+                      </div>
                     ) : (
-                      <>
+                      <div>
                         €240<span className="font-normal text-base">/yr</span>
-                      </>
+                      </div>
                     )}
                   </p>
                 </p>
@@ -146,6 +146,6 @@ export function Price() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

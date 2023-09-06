@@ -42,7 +42,7 @@ export default async function Dashboard() {
 
   const hasSub = await hasSubscription();
   return (
-    <>
+    <div>
       <Link href={"" + manageLink}>Manage Billing</Link>
       {/* check to see if they have a subscription or not */}
       {hasSub ? (
@@ -53,6 +53,6 @@ export default async function Dashboard() {
           <Link href={"" + checkoutLink}>Upgrade</Link>
         </div>
       )}
-    </>
+    </div>
   );
 }
