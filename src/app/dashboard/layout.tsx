@@ -6,6 +6,8 @@ import { Session } from "inspector";
 import Navigation from "@/components/Navigation";
 import AdminNavigation from "@/components/AdminNavigation";
 import Footer from "@/components/Footer";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,9 +26,11 @@ export default function RootLayout({
       <div className={inter.className}>
         <NextAuthProvider>
           <div>
-            <AdminNavigation />
-            {children}
-            <Footer />
+            <Suspense fallback={<Loading />}>
+              <AdminNavigation />
+              {children}
+              <Footer />
+            </Suspense>
           </div>
         </NextAuthProvider>
       </div>
