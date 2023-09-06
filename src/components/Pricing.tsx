@@ -1,7 +1,17 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Bubbles from "../../public/images/Bubbles.png";
 import Image from "next/image";
+
 export function Price() {
+  const [selectedOption, setSelectedOption] = useState("monthly");
+  const ANNUAL_PRO_PRICE = "€120";
+  const MONTHLY_PRO_PRICE = "€10";
+  const ANNUAL_PREMIUM_PRICE = "€20";
+  const MONTHLY_PREMIUM_PRICE = "€240";
+  const toggleOption = (option: string) => {
+    setSelectedOption(option);
+  };
   return (
     <>
       <div className="xl:mx-auto xl:container py-20 2xl:px-0 px-6">
@@ -27,14 +37,22 @@ export function Price() {
             <div className="w-56">
               <div className="bg-gray-100 shadow rounded-full flex items-center mt-10">
                 <button
-                  className="bg-gray-100 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:outline-none text-base leading-none text-gray-600 rounded-full py-4 px-6 mr-1"
-                  id="monthly"
+                  className={`${
+                    selectedOption === "monthly"
+                      ? "bg-indigo-700 text-white"
+                      : "bg-gray-100 text-gray-600"
+                  } focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:outline-none text-base leading-none rounded-full py-4 px-6 mr-1`}
+                  onClick={() => toggleOption("monthly")}
                 >
                   Monthly
                 </button>
                 <button
-                  className="bg-indigo-700 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:outline-none text-base leading-none text-white rounded-full py-4 px-6"
-                  id="annually"
+                  className={`${
+                    selectedOption === "annually"
+                      ? "bg-indigo-700 text-white"
+                      : "bg-gray-100 text-gray-600"
+                  } focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:outline-none text-base leading-none rounded-full py-4 px-6`}
+                  onClick={() => toggleOption("annually")}
                 >
                   Annually
                 </button>
@@ -81,7 +99,16 @@ export function Price() {
                     The Job Hunter
                   </h2>
                   <p className="text-2xl md:mt-0 mt-4 font-semibold leading-6 text-gray-800">
-                    $10<span className="font-normal text-base">/mo</span>
+                    {selectedOption === "monthly" ? (
+                      <>
+                        {" "}
+                        €10<span className="font-normal text-base">/mo</span>
+                      </>
+                    ) : (
+                      <>
+                        €120<span className="font-normal text-base">/yr</span>
+                      </>
+                    )}
                   </p>
                 </div>
                 <p className="md:w-80 text-base leading-6 mt-4 text-gray-600">
@@ -98,7 +125,18 @@ export function Price() {
                   The Professional
                 </h2>
                 <p className="text-2xl md:mt-0 mt-4 font-semibold leading-6 text-gray-800">
-                  $14.99<span className="font-normal text-base">/mo</span>
+                  <p className="text-2xl md:mt-0 mt-4 font-semibold leading-6 text-gray-800">
+                    {selectedOption === "monthly" ? (
+                      <>
+                        {" "}
+                        €20<span className="font-normal text-base">/mo</span>
+                      </>
+                    ) : (
+                      <>
+                        €240<span className="font-normal text-base">/yr</span>
+                      </>
+                    )}
+                  </p>
                 </p>
               </div>
               <p className="md:w-80 text-base leading-6 mt-4 text-gray-600">
