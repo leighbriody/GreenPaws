@@ -8,7 +8,7 @@ import Image from "next/image";
 
 import { RiArrowDropDownLine } from "react-icons/ri";
 export default function TestNav() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
 
   const { data: session } = useSession();
   const pathname = usePathname();
@@ -66,20 +66,23 @@ export default function TestNav() {
             <button
               aria-label="humburger"
               id="hamburger"
-              className="relative -mr-6 p-6 lg:hidden"
+              className={`relative -mr-6 p-6 lg:hidden ${
+                isMenuOpen ? "navbar-active" : ""
+              }`}
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               <div
                 aria-hidden="true"
                 id="line"
-                className={`m-auto h-0.5 w-5 rounded bg-sky-900 transition duration-300 dark:bg-gray-300 ${
-                  isMenuOpen ? "transform rotate-45" : ""
+                className={`m-auto h-0.5 w-5 rounded bg-sky-900 transition duration-300 dark:bg-gray-300 transform ${
+                  isMenuOpen ? "translate-y-1.5 rotate-45" : ""
                 }`}
               ></div>
               <div
                 aria-hidden="true"
                 id="line2"
-                className={`m-auto mt-2 h-0.5 w-5 rounded bg-sky-900 transition duration-300 dark:bg-gray-300 ${
-                  isMenuOpen ? "opacity-0" : ""
+                className={`m-auto mt-2 h-0.5 w-5 rounded bg-sky-900 transition duration-300 dark:bg-gray-300 transform ${
+                  isMenuOpen ? "-translate-y-1 -rotate-45" : ""
                 }`}
               ></div>
             </button>
@@ -164,7 +167,35 @@ export default function TestNav() {
               </div>
             </div>
 
-            <div>
+            <button
+              aria-label="switch theme"
+              className="switcher group relative hidden h-9 w-9 rounded-full before:absolute before:inset-0 before:rounded-full before:border before:border-gray-200 before:bg-gray-50 before:bg-gradient-to-b before:transition-transform before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-gray-800 lg:flex"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="transistion relative m-auto hidden h-5 w-5 fill-gray-500 duration-300 group-hover:rotate-180 group-hover:fill-yellow-400 dark:block dark:fill-gray-300"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="transistion relative m-auto h-5 w-5 fill-gray-500 duration-300 group-hover:-rotate-90 group-hover:fill-blue-900 dark:hidden"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+              </svg>
+            </button>
+            <button
+              aria-label="switch theme"
+              className="ml-5 switcher group relative hidden h-9 w-9 rounded-full before:absolute before:inset-0 before:rounded-full before:border before:border-gray-200 before:bg-gray-50 before:bg-gradient-to-b before:transition-transform before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-gray-800 lg:flex"
+            >
               <div className="dropdown dropdown-end">
                 <label tabIndex={0} className="">
                   {session?.user?.image && (
@@ -197,32 +228,6 @@ export default function TestNav() {
                   </li>
                 </ul>
               </div>
-            </div>
-
-            <button
-              aria-label="switch theme"
-              className="switcher group relative hidden h-9 w-9 rounded-full before:absolute before:inset-0 before:rounded-full before:border before:border-gray-200 before:bg-gray-50 before:bg-gradient-to-b before:transition-transform before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-gray-800 lg:flex"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="transistion relative m-auto hidden h-5 w-5 fill-gray-500 duration-300 group-hover:rotate-180 group-hover:fill-yellow-400 dark:block dark:fill-gray-300"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="transistion relative m-auto h-5 w-5 fill-gray-500 duration-300 group-hover:-rotate-90 group-hover:fill-blue-900 dark:hidden"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-              </svg>
             </button>
           </div>
           <div className="fixed top-3 right-14 z-20 sm:right-24 lg:hidden">
@@ -251,6 +256,40 @@ export default function TestNav() {
                 <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
               </svg>
             </button>
+          </div>
+          <div className="fixed top-3 right-14 z-20 sm:right-24 lg:hidden mr-5">
+            <div className="dropdown dropdown-end">
+              <label tabIndex={0} className="">
+                {session?.user?.image && (
+                  <div className="grid grid-cols-[auto,auto] gap-1 items-center mr-5">
+                    <div className="group relative h-9 w-9 rounded-full overflow-hidden">
+                      <Image
+                        src={session?.user?.image}
+                        width={500}
+                        height={500}
+                        alt="user"
+                      />
+                    </div>
+                    <div className="relative group">
+                      <div className="rounded-full">
+                        <RiArrowDropDownLine />
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </label>
+              <ul
+                tabIndex={0}
+                className="menu dropdown-content z-[1] p-2 shadow bg-base-100 rounded-box w-52 mt-4"
+              >
+                <li>
+                  <Link href={"/billing"}>Manage Billing</Link>
+                </li>
+                <li>
+                  <Link href={"/contact"}>Support</Link>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
