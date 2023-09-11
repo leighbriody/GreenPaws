@@ -2,16 +2,13 @@
 import { signIn, signOut } from "next-auth/react";
 import Image from "next/image";
 import React from "react";
-
-function logIn() {
-  console.log("LOGIN CLICKED");
-  signIn("github", { callbackUrl: "/dashboard" });
-}
+import discord from "../../../public/images/discord.png";
+import google from "../../../public/images/google.png";
 
 function logInGoogle() {
-  console.log("LOGIN CLICKED");
   signIn("google", { callbackUrl: "/dashboard" });
 }
+
 export default function SignIn() {
   return (
     <div className="relative py-16 bg-gradient-to-br from-sky-50 to-gray-200">
@@ -40,7 +37,7 @@ export default function SignIn() {
                 >
                   <div className="relative flex items-center space-x-4 justify-center">
                     <Image
-                      src="https://tailus.io/sources/blocks/social/preview/images/google.svg"
+                      src={google}
                       className="absolute left-0 w-5"
                       alt="google logo"
                       width={250}
@@ -54,7 +51,23 @@ export default function SignIn() {
                 <button
                   className="group h-12 px-6 border-2 border-gray-300 rounded-full transition duration-300 
  hover:border-blue-400 focus:bg-blue-50 active:bg-blue-100"
-                  onClick={logIn}
+                >
+                  <div className="relative flex items-center space-x-4 justify-center">
+                    <Image
+                      src={discord}
+                      className="absolute left-0 w-5"
+                      alt="discord logo"
+                      width={250}
+                      height={250}
+                    />
+                    <span className="block w-max font-semibold tracking-wide text-gray-700 text-sm transition duration-300 group-hover:text-blue-600 sm:text-base">
+                      Continue with Discord
+                    </span>
+                  </div>
+                </button>
+                <button
+                  className="group h-12 px-6 border-2 border-gray-300 rounded-full transition duration-300 
+ hover:border-blue-400 focus:bg-blue-50 active:bg-blue-100"
                 >
                   <div className="relative flex items-center space-x-4 justify-center">
                     <svg

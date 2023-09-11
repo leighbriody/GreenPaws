@@ -1,6 +1,55 @@
-import React from "react";
+"use client";
+
+import React, { ChangeEvent, FormEvent, useState } from "react";
+import { Resend } from "resend";
+import { SupportEmail } from "../../../emails/SupportEmail";
+
+const resend = new Resend("re_fQE6e8TQ_PdDTy6bYFkFyrS2Wtyt6GoZd");
+
+interface FormData {
+  email: string;
+  subject: string;
+  message: string;
+}
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    console.log("Form data", formData);
+    e.preventDefault();
+    // Handle form submission logic here
+    await fetch("/api/email", {
+      method: "POST",
+      body: JSON.stringify({
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+      }),
+    });
+
+    setFormData({
+      email: "",
+      subject: "",
+      message: "",
+    });
+  };
+
+  // Event handler for input changes
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { id, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [id]: value,
+    }));
+  };
+
   return (
     <div className="bg-white dark:bg-gray-900">
       <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
@@ -11,7 +60,7 @@ export default function Contact() {
           Got a technical issue? Want to send feedback about a beta feature?
           Need details about our Business plan? Let us know.
         </p>
-        <form action="#" className="space-y-8">
+        <form onSubmit={handleSubmit} className="space-y-8">
           <div>
             <label
               htmlFor="email"
@@ -23,8 +72,10 @@ export default function Contact() {
               type="email"
               id="email"
               className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-              placeholder="name@flowbite.com"
+              placeholder="name@domain.com"
               required
+              value={formData.email}
+              onChange={handleInputChange}
             />
           </div>
           <div>
@@ -40,6 +91,8 @@ export default function Contact() {
               className="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
               placeholder="Let us know how we can help you"
               required
+              value={formData.subject}
+              onChange={handleInputChange}
             />
           </div>
           <div className="sm:col-span-2">
@@ -54,6 +107,8 @@ export default function Contact() {
               rows="6"
               className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
               placeholder="Leave a comment..."
+              value={formData.message}
+              onChange={handleInputChange}
             ></textarea>
           </div>
           <button

@@ -26,7 +26,6 @@ export default async function Dashboard() {
     },
   });
   await createCustomerIfNull();
-  console.log("use stripe customer ID ", user?.stripe_customer_id);
   const manageLink = await generateCustomerPortalLink(
     "" + user?.stripe_customer_id
   );
@@ -43,6 +42,7 @@ export default async function Dashboard() {
   const hasSub = await hasSubscription();
   return (
     <>
+      <Toast />
       <Link href={"" + manageLink}>Manage Billing</Link>
       {/* check to see if they have a subscription or not */}
       {hasSub ? (

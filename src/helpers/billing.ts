@@ -27,6 +27,24 @@ export async function hasSubscription() {
   return false;
 }
 
+export async function getSubscriptionStartDate() {
+  const session = await getServerSession(authOptions);
+
+  if (session) {
+    const user = await prisma.user.findFirst({
+      where: { email: session.user?.email },
+    });
+
+    const subscriptions = await stripe.subscriptions.list({
+      customer: String(user?.stripe_customer_id),
+    });
+
+    return subscriptions.data[0].start_date;
+  }
+
+  return "";
+}
+
 export async function createCheckoutLink(customer: string) {
   const checkout = await stripe.checkout.sessions.create({
     success_url: "http://localhost:3000/dashboard&success=true",
