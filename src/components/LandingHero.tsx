@@ -6,7 +6,7 @@ export default function LandingHero() {
     <section id="home" className="pt-32 sm:pt-40 md:pt-48">
       <div className="mx-auto px-4 sm:px-12 xl:max-w-6xl xl:px-0">
         <div className="relative">
-          <h1 className="text-center text-5xl font-bold text-blue-900 dark:text-white sm:text-6xl lg:text-left lg:text-7xl">
+          <h1 className="text-center text-5xl font-bold text-content  sm:text-6xl lg:text-left lg:text-7xl">
             Design, Build,
             <span className="relative">
               <svg
@@ -17,8 +17,8 @@ export default function LandingHero() {
               >
                 <style>
                   {/* .st0 {
-                                        @apply fill-secondaryLight;
-                                    } */}
+                                @apply fill-secondaryLight;
+                            } */}
                 </style>
                 <path
                   className="st0"
@@ -41,14 +41,24 @@ export default function LandingHero() {
 
           <div className="relative items-center gap-12 lg:flex">
             <div className="text-center sm:mx-auto sm:w-11/12 md:mt-12 md:w-4/5 lg:mt-0 lg:mr-auto lg:w-6/12 lg:text-left">
-              <p className="mt-12 text-lg text-gray-600 dark:text-gray-300 sm:text-xl">
+              <p className="mt-12 text-lg text-content sm:text-xl">
                 Computers used to be magical. But much of that magic has been
                 lost over time, replaced by subpar tools and practices that slow
                 teams down and hold great work back.
               </p>
               <form action="" className="mt-12">
                 <div className="relative flex items-center rounded-full border border-primary/20 bg-bkg p-1 px-2 shadow-md focus-within:ring-2 dark:border-white/10 dark:bg-dark md:p-2 lg:pr-3">
-                  <div className="py-3 pl-4 lg:pl-5"></div>
+                  <div className="py-3 pl-4 lg:pl-5">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="m-auto h-6 w-6 fill-gray-500 dark:fill-gray-400"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                      <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                    </svg>
+                  </div>
                   <input
                     aria-label="your email"
                     autoComplete="email"

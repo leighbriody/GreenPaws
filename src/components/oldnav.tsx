@@ -8,24 +8,21 @@ import Image from "next/image";
 import { useTheme } from "next-themes";
 
 import { RiArrowDropDownLine } from "react-icons/ri";
-import Moon from "./Moon";
-import Sun from "./Sun";
-export default function TestNav() {
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
-
+export default function Navigation() {
   const { systemTheme, theme, setTheme } = useTheme();
   const currentTheme = theme === "system" ? systemTheme : theme;
-  const { data: session } = useSession();
-  const pathname = usePathname();
 
   function toggleTheme() {
-    console.log("Change theme called ");
     if (theme == "light") {
       setTheme("dark");
     } else {
       setTheme("light");
     }
   }
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
+
+  const { data: session } = useSession();
+  const pathname = usePathname();
 
   return (
     <nav id="navbar" className=" w-full border-b border-gray-100 ">
@@ -85,14 +82,14 @@ export default function TestNav() {
               <div
                 aria-hidden="true"
                 id="line"
-                className={`m-auto h-0.5 w-5 rounded bg-sky-900 transition duration-300 dark:bg-gray-300 transform ${
+                className={`m-auto h-0.5 w-5 rounded bg-bkg transition duration-300 transform ${
                   isMenuOpen ? "translate-y-1.5 rotate-45" : ""
                 }`}
               ></div>
               <div
                 aria-hidden="true"
                 id="line2"
-                className={`m-auto mt-2 h-0.5 w-5 rounded bg-sky-900 transition duration-300 dark:bg-gray-300 transform ${
+                className={`m-auto mt-2 h-0.5 w-5 rounded bg-bkgtransition duration-300 transform ${
                   isMenuOpen ? "-translate-y-1 -rotate-45" : ""
                 }`}
               ></div>
@@ -107,9 +104,9 @@ export default function TestNav() {
             id="navlinks"
             className={`${
               isMenuOpen ? "visible opacity-100" : "invisible opacity-0"
-            } absolute top-full right-0 z-30 w-full origin-top-left translate-y-1 scale-90 flex-col flex-wrap justify-end gap-6 rounded-3xl border border-gray-100 bg-white p-8 shadow-2xl shadow-gray-600/10 transition-all duration-300 dark:border-gray-700 dark:bg-gray-800 dark:shadow-none lg:visible lg:relative lg:flex lg:w-auto lg:translate-y-0 lg:scale-100 lg:flex-row lg:items-center lg:gap-0 lg:border-none lg:bg-transparent lg:p-0 lg:opacity-100 lg:shadow-none dark:lg:bg-transparent`}
+            } absolute top-full right-0 z-30 w-full origin-top-left translate-y-1 scale-90 flex-col flex-wrap justify-end gap-6 rounded-3xl border border-gray-100  p-8 shadow-2xl shadow-gray-600/10 transition-all duration-300 dark:border-gray-700 bg-bkg dark:shadow-none lg:visible lg:relative lg:flex lg:w-auto lg:translate-y-0 lg:scale-100 lg:flex-row lg:items-center lg:gap-0 lg:border-none lg:bg-transparent lg:p-0 lg:opacity-100 lg:shadow-none dark:lg:bg-transparent`}
           >
-            <div className="text-gray-600 dark:text-gray-300 lg:pr-4 ">
+            <div className="text-content lg:pr-4 ">
               <ul className="space-y-6 text-base font-medium tracking-wide lg:flex lg:space-y-0 lg:text-sm">
                 <li>
                   <Link
@@ -138,7 +135,7 @@ export default function TestNav() {
                       pathname == "/pricing" ? "text-primary" : ""
                     }`}
                   >
-                    Pricing
+                    Pricingsss
                   </Link>
                 </li>
                 {session && (
@@ -155,12 +152,7 @@ export default function TestNav() {
                 )}
               </ul>
             </div>
-            <div className="mt-5 -ml-1 flex w-full flex-col space-y-2 border-primary/10 dark:border-gray-700 sm:flex-row md:w-max lg:mt-0 lg:mr-6 lg:space-y-0 lg:border-l lg:pl-6">
-              <div className="lg:hidden">
-                {currentTheme === "dark" && <Sun changeTheme={toggleTheme} />}
-                {currentTheme === "light" && <Moon changeTheme={toggleTheme} />}
-              </div>
-            </div>
+
             <div className="mt-12 -ml-1 flex w-full flex-col space-y-2 border-primary/10 dark:border-gray-700 sm:flex-row md:w-max lg:mt-0 lg:mr-6 lg:space-y-0 lg:border-l lg:pl-6">
               <div className="relative ml-auto flex h-9 w-full items-center justify-center before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition-transform before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-primaryLight sm:px-4 lg:before:border lg:before:border-gray-200 lg:before:bg-gray-100 lg:dark:before:bg-gray-800">
                 {!session && (
@@ -183,56 +175,123 @@ export default function TestNav() {
               </div>
             </div>
 
+            <button
+              aria-label="switch theme"
+              className="switcher group relative hidden h-9 w-9 rounded-full before:absolute before:inset-0 before:rounded-full before:border before:border-gray-200 before:bg-gray-50 before:bg-gradient-to-b before:transition-transform before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-gray-800 lg:flex focus:outline-none"
+              onClick={toggleTheme} // Call the toggleTheme function
+            >
+              {currentTheme === "dark" ? (
+                // Display light theme icon
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
+                  />
+                </svg>
+              ) : (
+                // Display dark theme icon
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"
+                  />
+                </svg>
+              )}
+            </button>
             {session?.user?.image && (
-              <>
-                <div className="flex items-center space-x-4">
-                  <div className="switcher group relative hidden h-9 w-9 rounded-full lg:flex focus:outline-none">
-                    {currentTheme === "dark" && (
-                      <Sun changeTheme={toggleTheme} />
-                    )}
-                    {currentTheme === "light" && (
-                      <Moon changeTheme={toggleTheme} />
-                    )}
-                  </div>
-
-                  {/* Added a flex container for spacing */}
-                  <button className="switcher group relative hidden h-9 w-9 rounded-full before:absolute before:inset-0 before:rounded-full before:border before:border-gray-200 before:bg-gray-50 before:bg-gradient-to-b before:transition-transform before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-gray-800 lg:flex focus:outline-none">
-                    <div className="dropdown dropdown-end">
-                      <label tabIndex={0} className="">
-                        <div className="grid grid-cols-[auto,auto] gap-1 items-center mr-5">
-                          <div className="group relative h-9 w-9 rounded-full overflow-hidden">
-                            <Image
-                              src={session?.user?.image}
-                              width={500}
-                              height={500}
-                              alt="user"
-                            />
-                          </div>
-                          <div className="relative group">
-                            <div className="rounded-full">
-                              <RiArrowDropDownLine />
-                            </div>
-                          </div>
+              <button
+                aria-label="switch theme"
+                className="switcher group relative hidden h-9 w-9 rounded-full before:absolute before:inset-0 before:rounded-full before:border before:border-gray-200 before:bg-gray-50 before:bg-gradient-to-b before:transition-transform before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-gray-800 lg:flex focus:outline-none"
+                onClick={toggleTheme} // Call the toggleTheme function
+              >
+                <div className="dropdown dropdown-end">
+                  <label tabIndex={0} className="">
+                    <div className="grid grid-cols-[auto,auto] gap-1 items-center mr-5">
+                      <div className="group relative h-9 w-9 rounded-full overflow-hidden">
+                        <Image
+                          src={session?.user?.image}
+                          width={500}
+                          height={500}
+                          alt="user"
+                        />
+                      </div>
+                      <div className="relative group">
+                        <div className="rounded-full">
+                          <RiArrowDropDownLine />
                         </div>
-                      </label>
-                      <ul
-                        tabIndex={0}
-                        className="menu dropdown-content z-[1] p-2 shadow bg-base-100 rounded-box w-52 mt-4"
-                      >
-                        <li>
-                          <Link href={"/billing"}>Manage Billing</Link>
-                        </li>
-                        <li>
-                          <Link href={"/contact"}>Support</Link>
-                        </li>
-                      </ul>
+                      </div>
                     </div>
-                  </button>
+                  </label>
+                  <ul
+                    tabIndex={0}
+                    className="menu dropdown-content z-[1] p-2 shadow bg-base-100 rounded-box w-52 mt-4"
+                  >
+                    <li>
+                      <Link href={"/billing"}>Manage Billing</Link>
+                    </li>
+                    <li>
+                      <Link href={"/contact"}>Support</Link>
+                    </li>
+                  </ul>
                 </div>
-              </>
+              </button>
             )}
           </div>
-
+          <button
+            aria-label="switch theme"
+            className="switcher group relative hidden h-9 w-9 rounded-full before:absolute before:inset-0 before:rounded-full before:border before:border-gray-200 before:bg-gray-50 before:bg-gradient-to-b before:transition-transform before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-gray-800 lg:flex focus:outline-none"
+            onClick={toggleTheme} // Call the toggleTheme function
+          >
+            {currentTheme === "dark" ? (
+              // Display light theme icon
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
+                />
+              </svg>
+            ) : (
+              // Display dark theme icon
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"
+                />
+              </svg>
+            )}
+          </button>
           <div className="fixed top-3 right-14 z-20 sm:right-24 lg:hidden mr-5">
             <div className="dropdown dropdown-end">
               <label tabIndex={0} className="">

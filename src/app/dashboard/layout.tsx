@@ -27,7 +27,6 @@ export default function RootLayout({
             <Suspense fallback={<Loading />}>
               <AdminNavigation />
               {children}
-              <Footer />
             </Suspense>
           </div>
         </NextAuthProvider>

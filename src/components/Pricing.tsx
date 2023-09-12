@@ -9,7 +9,7 @@ export function Price() {
     setSelectedOption(option);
   };
   return (
-    <div className="xl:mx-auto xl:container py-20 2xl:px-0 px-6 bg-bkg">
+    <div className="xl:mx-auto xl:container py-20 2xl:px-0 px-6">
       <div className="lg:flex items-center justify-between">
         <div className=" lg:w-1/2 w-full">
           <p className="text-base leading-4 text-content">Choose your plan</p>
