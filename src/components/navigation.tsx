@@ -6,6 +6,7 @@ import { signOut } from "next-auth/react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { useTheme } from "next-themes";
+import Logo from "../../public/images/logo.png";
 
 import { RiArrowDropDownLine } from "react-icons/ri";
 import Moon from "./Moon";
@@ -36,7 +37,15 @@ export default function TestNav() {
               aria-label="ampire logo"
               className="nav-link flex items-center space-x-2"
             >
-              <svg
+              <Image
+                src={Logo}
+                width={200}
+                height={200}
+                alt="logo"
+                className="h-7 w-auto m-0"
+              />
+
+              {/* <svg
                 className="h-7 w-auto"
                 viewBox="0 0 1206 270"
                 fill="none"
@@ -71,7 +80,7 @@ export default function TestNav() {
                     <rect width="1206" height="270" fill="white" />
                   </clipPath>
                 </defs>
-              </svg>
+              </svg> */}
             </div>
 
             <button
