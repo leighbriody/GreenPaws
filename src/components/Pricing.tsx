@@ -5,10 +5,6 @@ import Image from "next/image";
 
 export function Price() {
   const [selectedOption, setSelectedOption] = useState("monthly");
-  const ANNUAL_PRO_PRICE = "€120";
-  const MONTHLY_PRO_PRICE = "€10";
-  const ANNUAL_PREMIUM_PRICE = "€20";
-  const MONTHLY_PREMIUM_PRICE = "€240";
   const toggleOption = (option: string) => {
     setSelectedOption(option);
   };

@@ -2,7 +2,6 @@
 
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import { Resend } from "resend";
-import { SupportEmail } from "../../../emails/SupportEmail";
 
 const resend = new Resend("re_fQE6e8TQ_PdDTy6bYFkFyrS2Wtyt6GoZd");
 

@@ -31,20 +31,10 @@ export default async function Dashboard() {
   );
   const checkoutLink = await createCheckoutLink("" + user?.stripe_customer_id);
 
-  // if (status === "loading") {
-  //   return <p>Loading...</p>;
-  // }
-
-  // if (status === "unauthenticated") {
-  //   return <p>Access Denied</p>;
-  // }
-
   const hasSub = await hasSubscription();
   return (
     <>
-      <Toast />
       <Link href={"" + manageLink}>Manage Billing</Link>
-      {/* check to see if they have a subscription or not */}
       {hasSub ? (
         <div>Subscribed</div>
       ) : (

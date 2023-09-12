@@ -72,16 +72,29 @@ export default async function Billing() {
             <h3 className="text-lg font-semibold mb-2">Subscription</h3>
             <div className="mb-2">
               <p className="text-gray-800">
-                {hasSub ? "Free Tier" : "Pro Tier"}
+                {hasSub ? "Pro Subscription" : "Free Subscription"}
               </p>
             </div>
             <div className="mb-4"></div>
-            <Link
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-              href={"" + checkoutLink}
-            >
-              {hasSub ? "Upgrade To Pro" : "Manage Subscription"}
-            </Link>
+            {hasSub ? (
+              <>
+                <Link
+                  className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                  href={"" + manageLink}
+                >
+                  Manage Subscriptio
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link
+                  className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                  href={"" + checkoutLink}
+                >
+                  Upgrade Subscrption
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </div>

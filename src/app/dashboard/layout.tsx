@@ -2,8 +2,6 @@ import "../globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { NextAuthProvider } from "../providers";
-import { Session } from "inspector";
-import Navigation from "@/components/Navigation";
 import AdminNavigation from "@/components/AdminNavigation";
 import Footer from "@/components/Footer";
 import { Suspense } from "react";

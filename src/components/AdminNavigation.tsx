@@ -2,7 +2,6 @@
 import Link from "next/link";
 import React from "react";
 import { FaUser, FaBriefcase, FaClipboardList } from "react-icons/fa";
-import Navigation from "./Navigation";
 import { usePathname } from "next/navigation";
 
 export default function AdminNavigation() {
