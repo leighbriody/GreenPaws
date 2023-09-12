@@ -34,7 +34,6 @@ export default async function Billing() {
   );
   const checkoutLink = await createCheckoutLink("" + user?.stripe_customer_id);
   const hasSub = await hasSubscription();
-  const subStartDate = await getSubscriptionStartDate();
 
   if (!user) {
     return <h1>Error</h1>;
@@ -46,7 +45,7 @@ export default async function Billing() {
 
   return (
     <div className="relative mt-40 mb-40">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-96 mx-auto">
+      <div className="bg-bkg  p-8 rounded-lg shadow-lg w-96 mx-auto">
         <div className="text-center mb-8">
           <h2 className="text-2xl font-semibold">Manage Billing</h2>
         </div>
@@ -63,15 +62,15 @@ export default async function Billing() {
               />
 
               <div>
-                <h4 className="text-gray-800 text-lg">{user.name}</h4>
-                <p className="text-gray-600">{user.email}</p>
+                <h4 className="text-content text-lg">{user.name}</h4>
+                <p className="text-content">{user.email}</p>
               </div>
             </div>
           </div>
           <div className="mb-4">
             <h3 className="text-lg font-semibold mb-2">Subscription</h3>
             <div className="mb-2">
-              <p className="text-gray-800">
+              <p className="text-content">
                 {hasSub ? "Pro Subscription" : "Free Subscription"}
               </p>
             </div>
@@ -79,7 +78,7 @@ export default async function Billing() {
             {hasSub ? (
               <>
                 <Link
-                  className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                  className="text-content px-4 py-2 rounded hover:bg-blue-600"
                   href={"" + manageLink}
                 >
                   Manage Subscriptio
