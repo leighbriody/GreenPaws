@@ -13,6 +13,7 @@ export default function Moon({ changeTheme }: MoonProps) {
         strokeWidth={1.5}
         stroke="currentColor"
         className="w-6 h-6"
+        onClick={changeTheme}
       >
         <path
           strokeLinecap="round"
