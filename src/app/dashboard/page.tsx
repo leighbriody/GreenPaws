@@ -14,10 +14,6 @@ import { authOptions } from "@/lib/auth";
 
 const prisma = new PrismaClient();
 
-export const stripe = new Stripe(String(process.env.STRIPE_SECRET), {
-  apiVersion: "2023-08-16",
-});
-
 export default async function Dashboard() {
   const session = await getServerSession(authOptions);
   const user = await prisma.user.findFirst({

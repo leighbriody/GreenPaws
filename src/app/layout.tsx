@@ -2,7 +2,6 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { NextAuthProvider } from "./providers";
-import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import NavBar from "@/components/NavBar";
 import PrelineLoader from "@/components/PrelineLoader";

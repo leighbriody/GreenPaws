@@ -3,12 +3,10 @@ import { PrismaClient } from "@prisma/client";
 import { authOptions } from "@/lib/auth";
 import { getServerSession } from "next-auth";
 import Stripe from "stripe";
-import Image from "next/image";
 import {
   createCheckoutLink,
   createCustomerIfNull,
   generateCustomerPortalLink,
-  getSubscriptionStartDate,
   hasSubscription,
 } from "@/helpers/billing";
 import Link from "next/link";
@@ -16,11 +14,11 @@ import ManageBillingModal from "./ManagebillingModal";
 
 const prisma = new PrismaClient();
 
-export const stripe = new Stripe(String(process.env.STRIPE_SECRET), {
-  apiVersion: "2023-08-16",
-});
-
 export default async function Billing() {
+  const stripe = new Stripe(String(process.env.STRIPE_SECRET), {
+    apiVersion: "2023-08-16",
+  });
+
   const session = await getServerSession(authOptions);
 
   const user = await prisma.user.findFirst({
