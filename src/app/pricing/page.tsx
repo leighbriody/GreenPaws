@@ -1,5 +1,5 @@
-import { Price } from "@/components/Pricing";
+import PricingSection from "@/components/PricingSection";
 import React from "react";
 export default function Pricing() {
-  return <Price />;
+  return <PricingSection />;
 }

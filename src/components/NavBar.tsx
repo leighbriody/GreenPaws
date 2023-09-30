@@ -75,20 +75,26 @@ export default function NavBar() {
         >
           <div className="flex flex-col gap-y-4 gap-x-0 mt-5 sm:flex-row sm:items-center sm:justify-end sm:gap-y-0 sm:gap-x-7 sm:mt-0 sm:pl-7">
             <Link
-              className="font-medium text-blue-600 sm:py-6 dark:text-blue-500"
               href="/"
+              className={`font-medium sm:py-6 dark:text-blue-500 ${
+                pathname == "/" ? "text-primary" : ""
+              }`}
               aria-current="page"
             >
               Home
             </Link>
             <Link
-              className="font-medium text-gray-500 hover:text-gray-400 sm:py-6 dark:text-gray-400 dark:hover:text-gray-500"
+              className={`font-medium sm:py-6 dark:text-blue-500 ${
+                pathname == "/about" ? "text-primary" : ""
+              }`}
               href={"/about"}
             >
               About
             </Link>
             <Link
-              className="font-medium text-gray-500 hover:text-gray-400 sm:py-6 dark:text-gray-400 dark:hover:text-gray-500"
+              className={`font-medium sm:py-6 dark:text-blue-500 ${
+                pathname == "/pricing" ? "text-primary" : ""
+              }`}
               href={"/pricing"}
             >
               Pricing
@@ -96,7 +102,9 @@ export default function NavBar() {
 
             {session && (
               <Link
-                className="font-medium text-gray-500 hover:text-gray-400 sm:py-6 dark:text-gray-400 dark:hover:text-gray-500"
+                className={`font-medium sm:py-6 dark:text-blue-500 ${
+                  pathname == "/dashboard" ? "text-primary" : ""
+                }`}
                 href={"/dashboard"}
               >
                 Dashboard
