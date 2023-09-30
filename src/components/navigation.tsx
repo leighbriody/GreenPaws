@@ -20,7 +20,6 @@ export default function Navigation() {
   const pathname = usePathname();
 
   function toggleTheme() {
-    console.log("Change theme called ");
     if (theme == "light") {
       setTheme("dark");
     } else {

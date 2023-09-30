@@ -4,6 +4,8 @@ import { Inter } from "next/font/google";
 import { NextAuthProvider } from "./providers";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import NavBar from "@/components/NavBar";
+import PrelineLoader from "@/components/PrelineLoader";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +23,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <NextAuthProvider>
-          <Navigation />
+          <PrelineLoader />
+          {/* <Navigation /> */}
+          <NavBar />
           {children}
           <Footer />
         </NextAuthProvider>
