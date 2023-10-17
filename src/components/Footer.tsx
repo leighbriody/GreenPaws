@@ -4,7 +4,7 @@ import Logo from "../../public/images/logo.png";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-gray-100 pt-32 pb-8 dark:border-gray-800">
+    <footer className="border-t border-gray-100 pt-32 pb-8 dark:border-gray-800 dark:bg-gray-800">
       <div>
         <div className="m-auto space-y-8 px-4 text-gray-600 dark:text-gray-400 sm:px-12 xl:max-w-6xl xl:px-0">
           <div className="grid grid-cols-8 gap-6 md:gap-0">
@@ -12,23 +12,11 @@ export default function Footer() {
               <div className="flex h-full items-center justify-between gap-6 border-b border-white py-6 dark:border-gray-800 md:flex-col md:items-start md:justify-between md:space-y-6 md:border-none md:py-0">
                 <div>
                   <a
-                    href="/index.html"
-                    aria-label="ampire logo"
-                    className="flex items-center"
+                    className="flex-none text-xl font-semibold dark:text-white"
+                    href="#"
+                    aria-label="Brand"
                   >
-                    <Image
-                      src={Logo}
-                      width={200}
-                      height={200}
-                      alt="logo"
-                      className="h-7 w-auto m-0"
-                    />
-                  </a>
-                  <a
-                    href="https://tailus.io"
-                    className="mt-2 inline-block text-sm"
-                  >
-                    Designed by User in place
+                    Simple SaaS
                   </a>
                 </div>
 

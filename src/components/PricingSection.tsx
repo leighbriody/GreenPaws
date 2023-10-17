@@ -1,264 +1,145 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
+import Bubbles from "../../public/images/Bubbles.png";
+import Image from "next/image";
 
-export default function PricingSection() {
+export function PricingSection() {
+  const [selectedOption, setSelectedOption] = useState("monthly");
+  const toggleOption = (option: string) => {
+    setSelectedOption(option);
+  };
   return (
-    <section className="min-h-screen w-full py-12 bg-gradient-to-r from-gray-50 to-gray-100 dark:from-zinc-900 dark:to-zinc-800 flex items-center justify-center">
-      <div className="container px-4 md:px-6">
-        <div className="grid grid-cols-1 gap-6 mt-8 md:grid-cols-3 md:gap-8">
-          <div className="flex flex-col p-6 bg-white shadow-lg rounded-lg dark:bg-zinc-850 justify-between border border-gray-300">
-            <div>
-              <h3 className="text-2xl font-bold text-center">Basic</h3>
-              <div className="mt-4 text-center text-zinc-600 dark:text-zinc-400">
-                <span className="text-4xl font-bold">$29</span>/ month
+    <div className="dark:bg-gray-800">
+      <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto dark:bg-gray-800 dark:text-white">
+        <div className="lg:flex items-center justify-between">
+          <div className=" lg:w-1/2 w-full">
+            <p className="text-base leading-4 text-content">Choose your plan</p>
+            <h1
+              role="heading"
+              className="md:text-5xl text-3xl font-bold leading-10 mt-3 text-content"
+            >
+              Our pricing plan
+            </h1>
+            <p
+              role="contentinfo"
+              className="text-base leading-5 mt-5 text-content"
+            >
+              We’re working on a suit of tools to make managing complex systems
+              easier, for everyone for free. we can’t wait to hear what you
+              think
+            </p>
+            <div className="w-56">
+              <div className="bg-gray-100 shadow rounded-full flex items-center mt-10">
+                <button
+                  className={`${
+                    selectedOption === "monthly"
+                      ? "bg-indigo-700 text-white"
+                      : "bg-gray-100 text-gray-600"
+                  } focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:outline-none text-base leading-none rounded-full py-4 px-6 mr-1`}
+                  onClick={() => toggleOption("monthly")}
+                >
+                  Monthly
+                </button>
+                <button
+                  className={`${
+                    selectedOption === "annually"
+                      ? "bg-indigo-700 text-white"
+                      : "bg-gray-100 text-gray-600"
+                  } focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:outline-none text-base leading-none rounded-full py-4 px-6`}
+                  onClick={() => toggleOption("annually")}
+                >
+                  Annually
+                </button>
               </div>
-              <ul className="mt-4 space-y-2">
-                <li className="flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    className=" text-white text-xs bg-green-500 rounded-full mr-2 p-1"
-                  >
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  720p Video Rendering
-                </li>
-                <li className="flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    className=" text-white text-xs bg-green-500 rounded-full mr-2 p-1"
-                  >
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  2GB Cloud Storage
-                </li>
-                <li className="flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    className=" text-white text-xs bg-green-500 rounded-full mr-2 p-1"
-                  >
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  Basic Video Templates
-                </li>
-              </ul>
-            </div>
-            <div className="mt-6">
-              <button className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full">
-                Get Started
-              </button>
             </div>
           </div>
-          <div className="relative flex flex-col p-6 bg-white shadow-lg rounded-lg dark:bg-zinc-850 justify-between border border-purple-500">
-            <div className="px-3 py-1 text-sm text-white bg-gradient-to-r from-pink-500 to-purple-500 rounded-full inline-block absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-              Popular
-            </div>
-            <div>
-              <h3 className="text-2xl font-bold text-center">Pro</h3>
-              <div className="mt-4 text-center text-zinc-600 dark:text-zinc-400">
-                <span className="text-4xl font-bold">$59</span>/ month
+          <div
+            className="xl:w-1/2 lg:w-7/12 relative w-full lg:mt-0 mt-12 md:px-8"
+            role="list"
+          >
+            <Image
+              src={Bubbles}
+              width={500}
+              height={500}
+              alt="bubbles"
+              className="absolute w-full -ml-12 mt-24"
+            />
+
+            <div
+              role="listitem"
+              className="bg-white cursor-pointer shadow rounded-lg p-8 relative z-30"
+            >
+              <div className="md:flex items-center justify-between">
+                <h2 className="text-2xl font-semibold leading-6 text-gray-800">
+                  Hobby
+                </h2>
+                <p className="text-2xl font-semibold md:mt-0 mt-4 leading-6 text-gray-800">
+                  FREE
+                </p>
               </div>
-              <ul className="mt-4 space-y-2">
-                <li className="flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    className=" text-white text-2xs bg-green-500 rounded-full mr-2 p-1"
-                  >
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  1080p Video Rendering
-                </li>
-                <li className="flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    className=" text-white text-xs bg-green-500 rounded-full mr-2 p-1"
-                  >
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  10GB Cloud Storage
-                </li>
-                <li className="flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    className=" text-white text-xs bg-green-500 rounded-full mr-2 p-1"
-                  >
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  Premium Video Templates
-                </li>
-                <li className="flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    className=" text-white text-xs bg-green-500 rounded-full mr-2 p-1"
-                  >
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  Collaboration Tools
-                </li>
-              </ul>
+              <p className="md:w-80 text-base leading-6 mt-4 text-gray-600">
+                Ability to try our serivces for free, create 1 tailored cv with
+                no charged on sign up
+              </p>
             </div>
-            <div className="mt-6">
-              <button className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full bg-gradient-to-r from-pink-500 to-purple-500">
-                Get Started
-              </button>
-            </div>
-          </div>
-          <div className="flex flex-col p-6 bg-white shadow-lg rounded-lg dark:bg-zinc-850 justify-between border border-gray-300">
-            <div>
-              <h3 className="text-2xl font-bold text-center">Enterprise</h3>
-              <div className="mt-4 text-center text-zinc-600 dark:text-zinc-400">
-                <span className="text-4xl font-bold">$99</span>/ month
+            <div
+              role="listitem"
+              className="bg-white cursor-pointer shadow rounded-lg mt-3 flex relative z-30"
+            >
+              <div className="w-2.5  h-auto bg-indigo-700 rounded-tl-md rounded-bl-md" />
+              <div className="w-full p-8">
+                <div className="md:flex items-center justify-between">
+                  <h2 className="text-2xl font-semibold leading-6 text-gray-800">
+                    The Job Hunter
+                  </h2>
+                  <p className="text-2xl md:mt-0 mt-4 font-semibold leading-6 text-gray-800">
+                    {selectedOption === "monthly" ? (
+                      <div>
+                        {" "}
+                        €10<span className="font-normal text-base">/mo</span>
+                      </div>
+                    ) : (
+                      <div>
+                        €120<span className="font-normal text-base">/yr</span>
+                      </div>
+                    )}
+                  </p>
+                </div>
+                <p className="md:w-80 text-base leading-6 mt-4 text-gray-600">
+                  Ability to created up to 20 tailored cvs a month
+                </p>
               </div>
-              <ul className="mt-4 space-y-2">
-                <li className="flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    className=" text-white text-xs bg-green-500 rounded-full mr-2 p-1"
-                  >
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  4K Video Rendering
-                </li>
-                <li className="flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    className=" text-white text-xs bg-green-500 rounded-full mr-2 p-1"
-                  >
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  Unlimited Cloud Storage
-                </li>
-                <li className="flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    className=" text-white text-xs bg-green-500 rounded-full mr-2 p-1"
-                  >
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  Custom Video Templates
-                </li>
-                <li className="flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    className=" text-white text-xs bg-green-500 rounded-full mr-2 p-1"
-                  >
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  Advanced Collaboration Tools
-                </li>
-                <li className="flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    className=" text-white text-xs bg-green-500 rounded-full mr-2 p-1"
-                  >
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  Dedicated Support
-                </li>
-              </ul>
             </div>
-            <div className="mt-6">
-              <button className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full">
-                Get Started
-              </button>
+            <div
+              role="listitem"
+              className="bg-white cursor-pointer shadow rounded-lg p-8 relative z-30 mt-7"
+            >
+              <div className="md:flex items-center justify-between">
+                <h2 className="text-2xl font-semibold leading-6 text-gray-800">
+                  The Professional
+                </h2>
+                <p className="text-2xl md:mt-0 mt-4 font-semibold leading-6 text-gray-800">
+                  <p className="text-2xl md:mt-0 mt-4 font-semibold leading-6 text-gray-800">
+                    {selectedOption === "monthly" ? (
+                      <div>
+                        {" "}
+                        €20<span className="font-normal text-base">/mo</span>
+                      </div>
+                    ) : (
+                      <div>
+                        €240<span className="font-normal text-base">/yr</span>
+                      </div>
+                    )}
+                  </p>
+                </p>
+              </div>
+              <p className="md:w-80 text-base leading-6 mt-4 text-gray-600">
+                Ability to create unlimited cvs a month
+              </p>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

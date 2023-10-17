@@ -105,7 +105,7 @@ export default function NavBar() {
                 className={`font-medium sm:py-6 dark:text-blue-500 ${
                   pathname == "/dashboard" ? "text-primary" : ""
                 }`}
-                href={"/dashboard"}
+                href={"/dashboard/profile"}
               >
                 Dashboard
               </Link>

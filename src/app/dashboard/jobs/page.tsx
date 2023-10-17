@@ -9,5 +9,5 @@ export default async function Jobs() {
   if (!session) {
     redirect("/sign-in?callbackUrl=/dashboard/profile");
   }
-  return <div>Jobs</div>;
+  return <div className="dark:bg-gray-800 dark:text-white">Jobs</div>;
 }
