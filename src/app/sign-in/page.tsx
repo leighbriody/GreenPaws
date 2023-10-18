@@ -11,7 +11,7 @@ function logInGoogle() {
 
 export default function SignIn() {
   return (
-    <div className="relative py-16 bg-gradient-to-br from-sky-50 to-gray-200">
+    <div className="relative py-16 bg-white dark:bg-gray-800">
       <div className="mt-20 relative container m-auto px-6 text-gray-500 md:px-12 xl:px-40">
         <div className="m-auto md:w-8/12 lg:w-6/12 xl:w-6/12">
           <div className="rounded-xl bg-white shadow-xl">
@@ -26,7 +26,7 @@ export default function SignIn() {
                   height={250}
                 />
                 <h2 className="mb-8 text-2xl text-cyan-900 font-bold">
-                  Sign in to unlock the best of Tailus.
+                  Sign in to unlock the best of Simple SaaS.
                 </h2>
               </div>
               <div className="mt-16 grid space-y-4">
