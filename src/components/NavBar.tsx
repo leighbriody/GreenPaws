@@ -122,7 +122,7 @@ export default function NavBar() {
                 }`}
                 href={"/dashboard/profile"}
               >
-                Dashboard
+                {theme}
               </Link>
             )}
 
