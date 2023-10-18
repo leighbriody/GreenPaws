@@ -108,7 +108,7 @@ export default function NavBar() {
               className={`font-medium sm:py-6 dark:text-white ${
                 pathname == "/support" ? "text-primary dark:text-blue-600" : ""
               }`}
-              href={"/support"}
+              href={"/contact"}
             >
               Support
             </Link>
