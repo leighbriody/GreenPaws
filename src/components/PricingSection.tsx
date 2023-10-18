@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import Bubbles from "../../public/images/Bubbles.png";
+import bubbles from "../../public/images/bubbles.png";
 import Image from "next/image";
 
 export function PricingSection() {
@@ -58,7 +58,7 @@ export function PricingSection() {
             role="list"
           >
             <Image
-              src={Bubbles}
+              src={bubbles}
               width={500}
               height={500}
               alt="bubbles"
