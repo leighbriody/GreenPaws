@@ -110,7 +110,7 @@ export default function NavBar() {
               }`}
               href={"/contact"}
             >
-              Support
+              {theme}
             </Link>
 
             {session && (
@@ -122,7 +122,7 @@ export default function NavBar() {
                 }`}
                 href={"/dashboard/profile"}
               >
-                {theme}
+                Dashboard
               </Link>
             )}
 
