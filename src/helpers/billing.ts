@@ -71,7 +71,6 @@ export async function generateCustomerPortalLink(customerId: string) {
 
     return portalSession.url;
   } catch (error) {
-    console.log(error);
     return undefined;
   }
 }

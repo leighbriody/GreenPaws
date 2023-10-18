@@ -8,11 +8,8 @@ import { usePathname } from "next/navigation";
 import { signOut } from "next-auth/react";
 
 export default function NavBar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
-
-  const { systemTheme, theme, setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const currentTheme = theme === "system" ? systemTheme : theme;
   const { data: session } = useSession();
   const pathname = usePathname();
 
@@ -24,7 +21,6 @@ export default function NavBar() {
     return null;
   }
   function toggleTheme() {
-    console.log("theme", theme);
     if (theme == "light") {
       setTheme("dark");
     } else {
@@ -107,6 +103,14 @@ export default function NavBar() {
               href={"/pricing"}
             >
               Pricing
+            </Link>
+            <Link
+              className={`font-medium sm:py-6 dark:text-white ${
+                pathname == "/contact" ? "text-primary dark:text-blue-600" : ""
+              }`}
+              href={"/contact"}
+            >
+              Support
             </Link>
 
             {session && (

@@ -19,16 +19,22 @@ export default function Contact() {
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
-    console.log("Form data", formData);
     e.preventDefault();
     // Handle form submission logic here
     await fetch("/api/email", {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+
       body: JSON.stringify({
         email: formData.email,
         subject: formData.subject,
         message: formData.message,
       }),
+    }).then(() => {
+      // Toast notification
+      console.log("success");
     });
 
     setFormData({
