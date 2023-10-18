@@ -106,11 +106,11 @@ export default function NavBar() {
             </Link>
             <Link
               className={`font-medium sm:py-6 dark:text-white ${
-                pathname == "/contact" ? "text-primary dark:text-blue-600" : ""
+                pathname == "/support" ? "text-primary dark:text-blue-600" : ""
               }`}
-              href={"/contact"}
+              href={"/support"}
             >
-              {theme}
+              Support
             </Link>
 
             {session && (

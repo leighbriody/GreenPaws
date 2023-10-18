@@ -9,7 +9,9 @@ type Props = {
 export const NextAuthProvider = ({ children }: Props) => {
   return (
     <SessionProvider>
-      <ThemeProvider attribute="class">{children}</ThemeProvider>
+      <ThemeProvider attribute="class" enableSystem={false}>
+        {children}
+      </ThemeProvider>
     </SessionProvider>
   );
 };
