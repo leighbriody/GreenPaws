@@ -1,34 +1,95 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ⭐ Next JS - SaaS Starter Kit
 
-## Getting Started
+The Open Source Next.js SaaS boilerplate accelerates your startup journey by seamlessly integrating Stripe, NextAuth, and Resend. This powerful combination not only ensures a robust foundation for your project but also propels your startup off the ground swiftly, providing the essential tools for a successful launch.
 
-First, run the development server:
+Please star ⭐ the repo 😀
+
+## 🛠️ Built With
+
+- [Next.js](https://nextjs.org)
+- [NextAuth.js](https://next-auth.js.org/)
+- [Tailwind CSS](https://tailwindcss.com)
+- [React](https://reactjs.org)
+- [Prisma](https://www.prisma.io)
+- [TypeScript](https://www.typescriptlang.org)
+
+## 🛠️ Lets Get Going !
+
+### Prerequisites
+
+- Node.js (Version: >=18.x)
+- NPM
+
+### Dev
+
+#### 1. Setup
+
+- [Fork]([https://github.com/boxyhq/saas-starter-kit/fork](https://github.com/leighbriody?tab=repositories)) the repository
+- Clone the repository by using this command:
+
+```bash
+git clone https://github.com/<your_github_username>/https://github.com/leighbriody?tab=repositories.git
+```
+
+#### 2. Go to the project folder
+
+```bash
+cd BoilerplateSaas
+```
+
+#### 3. Install dependencies
+
+```bash
+npm install
+```
+
+#### 4. Set up your .env file
+
+Duplicate `.env.sample` to `.env`.
+
+```bash
+cp .env.sample .env
+```
+
+#### 5. Set up your env variables.
+
+You will need a next auth secret key.
+A google cloud console key.
+A Stripe product key.
+
+#### 6. Set up prisma database schema
+
+```bash
+npx prisma db push
+```
+
+#### 5. Start the server
+
+In a development environment:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### 8. Start the Prisma Studio
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Prisma Studio is a visual editor for the data in your database.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+npx prisma studio
+```
+##  Features
 
-## Learn More
+- Create account
+- Sign in with Google [[Setting up Google OAuth](https://support.google.com/cloud/answer/6158849?hl=en)]
+- Directory Sync (SCIM)
+- Protected routes for users
+- Produce prices using stripe
+- Manage stripe subscription billing.
+- Determine if a user has as subscription or not.
+- Dark mode
 
-To learn more about Next.js, take a look at the following resources:
+## ➡️ Coming Soon
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Billing & subscriptions
+- Unit and integration tests
