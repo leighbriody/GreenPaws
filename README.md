@@ -12,6 +12,8 @@ Please star ⭐ the repo 😀
 - [React](https://reactjs.org)
 - [Prisma](https://www.prisma.io)
 - [TypeScript](https://www.typescriptlang.org)
+- [Planetscale](https://planetscale.com/)
+- 
 
 ## 🛠️ Lets Get Going !
 
@@ -56,6 +58,7 @@ cp .env.sample .env
 You will need a next auth secret key.
 A google cloud console key.
 A Stripe product key.
+You will need a database url (I reccomend planetscale for the DB)
 
 #### 6. Set up prisma database schema
 
