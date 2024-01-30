@@ -52,7 +52,7 @@ export async function createCheckoutLink(customer: string) {
     customer: customer,
     line_items: [
       {
-        price: "price_1NmDFoEz9UBZwIM7Dn50GfK6",
+        price: "price_1OeOJDE9psLBJPFxvphTKZqj",
         quantity: 1,
       },
     ],
